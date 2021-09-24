@@ -6,7 +6,6 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from VoiceChat_Song_bot.config import que
-from VoiceChat_Song_bot.function.admins import get
 from VoiceChat_Song_bot.helpers.channelmusic import get_chat_id
 from VoiceChat_Song_bot.helpers.decorators import authorized_users_only
 from VoiceChat_Song_bot.helpers.decorators import errors
