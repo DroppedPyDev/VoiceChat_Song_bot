@@ -4,7 +4,7 @@ from typing import List
 
 from pyrogram.types import Chat
 
-from VoiceChat_Song_bot.function.admins import get as gett
+from VoiceChat_Song_bot.function.admins import get 
 from VoiceChat_Song_bot.function.admins import set
 
 
