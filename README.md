@@ -1,5 +1,5 @@
-# VoiceChat_Song_bot
-`A Telegram Voice chat Music Streaming bot with Playlist Support`
+# VoiceChat Bot
+`A Telegram Voice chat Music Streaming bot with Playlist Support and Heroku Support!`
 # Telegram Bot
 - <a href="https://t.me/Aami_song_bot">
     <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="Reach Me through Telegram" height="60" width="60">
