@@ -7,7 +7,7 @@
   "stack": "container",
   "buildpacks": [
    {
-     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
    }   
   ],        
   "env": {
@@ -34,7 +34,7 @@
       "value": "CatX_botz_chat"
     },
     "PROJECT_NAME": {
-      "description": "Your MusicPlayer project Name.",
+      "description": "Your MusicPlayer project Name.Rename with your own Name",
       "required": false,
       "value": "VoiceChat_Song_bot"
     },
@@ -49,7 +49,7 @@
     "BG_IMAGE": {
       "description": "BG image of bot (Use transparent one) [IGNORE].",
       "required": false,
-      "value": "https://telegra.ph/file/9b13ea3ce046a1a5c8098.png"
+      "value": "https://te.legra.ph/file/43c8d0262dc019b2233af.jpg"
     },     
     "UPDATES_CHANNEL": {
       "description": "Updates Channel without @ [Leave this if you don't have one].",
@@ -76,7 +76,7 @@
     "DURATION_LIMIT": {
       "description": "Max audio duration limit for downloads (minutes).",
       "required": true,
-      "value": "25"
+      "value": "10"
     }
   }
 }
