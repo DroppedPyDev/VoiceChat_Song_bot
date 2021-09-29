@@ -19,10 +19,10 @@ from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 
 from VoiceChat_Song_bot.config import DURATION_LIMIT
-from VoiceChat_Song_bot.modules.play import arq
+from Voicechat_Song_bot.modules.play import arq
 
 
-@Client.on_message(filters.command(["song" , "mu" , "as"]) & ~filters.edited)
+@Client.on_message(filters.command(["song", "s", "mu", "aud"]) & ~filters.edited)
 def song(client, message):
 
     user_id = message.from_user.id
@@ -34,7 +34,7 @@ def song(client, message):
         query += " " + str(i)
     print(query)
     m = message.reply("🔎 Sᴇᴀʀᴄʜɪɴɢ Sᴏɴɢ ᴏɴ [Yᴏᴜᴛᴜʙᴇ..!](m.youtube.com)")
-    ydl_opts = {"format": "bestaudio=m4a"}
+    ydl_opts = {"format": "bestaudio/best"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
         link = f"https://youtube.com{results[0]['url_suffix']}"
@@ -50,7 +50,7 @@ def song(client, message):
         results[0]["views"]
 
     except Exception as e:
-        m.edit("❌ Sᴏʀʀʏ I ᴄᴀɴ'ᴛ Fɪɴᴅ ʏᴏᴜʀ Rᴇǫᴜᴇsᴛᴇᴅ Sᴏɴɢ 🙁.\n\nTʀʏ Aɴᴏᴛʜᴇʀ Sᴏɴɢ Nᴀᴍᴇ ᴏʀ Cʜᴇᴄᴋ Sᴘᴇʟʟɪɴɢ..!/n/nIғ ʏᴏᴜ Fᴀᴄɪɴɢ sᴀᴍᴇ ɪssᴜᴇs ғᴏʀ sᴇᴄᴏɴᴅ Tɪᴍᴇ Rᴇᴘᴏʀᴛ ɪᴛ ᴏɴ @CatXbothub")
+        m.edit("❌ Sᴏʀʀʏ I ᴄᴀɴ'ᴛ Fɪɴᴅ ʏᴏᴜʀ Rᴇǫᴜᴇsᴛᴇᴅ Sᴏɴɢ 🙁.\n\nTʀʏ Aɴᴏᴛʜᴇʀ Sᴏɴɢ Nᴀᴍᴇ ᴏʀ Cʜᴇᴄᴋ Sᴘᴇʟʟɪɴɢ..!/n/nIғ ʏᴏᴜ Fᴀᴄɪɴɢ sᴀᴍᴇ ɪssᴜᴇs ғᴏʀ sᴇᴄᴏɴᴅ Tɪᴍᴇ Rᴇᴘᴏʀᴛ ɪᴛ ᴏɴ @CatX_botz")
         print(str(e))
         return
     m.edit("∂σωиℓσα∂ιиg ѕтαятє∂..!")
