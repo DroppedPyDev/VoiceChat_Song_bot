@@ -6,7 +6,7 @@ from VoiceChat_Song_bot.config import DURATION_LIMIT
 from VoiceChat_Song_bot.helpers.errors import DurationLimitError
 
 ydl_opts = {
-    "format": "bestaudio/best",
+    "format": "bestaudio[ext=m4a]",
     "verbose": True,
     "geo-bypass": True,
     "nocheckcertificate": True,
