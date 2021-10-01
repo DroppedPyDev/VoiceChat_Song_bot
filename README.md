@@ -76,4 +76,4 @@ Get STRING_NAME from here:  [![GenerateString](https://img.shields.io/badge/repl
 + Sudo Users can execute any command in any groups
 
 ####  Credits
-<samp> I Created this repo from many other Repos🤗. So I Gave thanks to all Main Devs♥️ </samp>
+<samp> - [MR-JINN-OF-TG](https://github.com/MR-JINN-OF-TG) For Helping me in this Project❤️ <br> - Me For Creating This Repo😸 </samp>
