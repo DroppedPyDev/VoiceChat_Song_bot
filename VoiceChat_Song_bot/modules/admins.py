@@ -3,6 +3,8 @@ from VoiceChat_Song_bot.config import que
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+
+from VoiceChat_Song_bot.helpers.admins import set 
 from VoiceChat_Song_bot.helpers.channelmusic import get_chat_id
 from VoiceChat_Song_bot.helpers.decorators import authorized_users_only, errors
 from VoiceChat_Song_bot.helpers.filters import command, other_filters
