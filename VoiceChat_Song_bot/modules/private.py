@@ -49,6 +49,9 @@ async def start_(client: Client, message: Message):
                     InlineKeyboardButton(
                         "➕ Add me to your Group ➕", url=f"https://t.me/Aami_song_bot?startgroup=true")
                 ],[
+                    InlineKeyboardButton(text="SEARCH HERE🔎", switch_inline_query_current_chat=""),
+                    InlineKeyboardButton(text="GO INLINE🔎", switch_inline_query="")
+                ],[
                     InlineKeyboardButton(
                         "❓ How to use Me", callback_data="cbhowtouse")
                 ],[
