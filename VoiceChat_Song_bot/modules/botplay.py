@@ -106,7 +106,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                 await f.close()
 
     image1 = Image.open("./background.png")
-    image2 = Image.open("./resources/IMG_20210924_195656_362.jpg")
+    image2 = Image.open("./resources/foreground.png")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
@@ -947,7 +947,7 @@ async def jiosaavn(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @VCPlayBot to your Group and try again manually request here @AwesomeSupport with your group link</b>",
+                        "\n\nOr manually add @CatKing_ext to your Group and try again manually request here @AwesomeSupport with your group link</b>",
                     )
     try:
         await USER.get_chat(chid)
