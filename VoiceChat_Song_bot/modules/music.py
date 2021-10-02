@@ -19,7 +19,7 @@ from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 
 from VoiceChat_Song_bot.config import DURATION_LIMIT
-from Voicechat_Song_bot.modules.play import arq
+from Voicechat_Song_bot.modules.botplay import arq
 
 
 @Client.on_message(filters.command(["song", "s", "mu", "aud"]) & ~filters.edited)
