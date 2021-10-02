@@ -19,7 +19,7 @@ from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 from VoiceChat_Song_bot.modules.botplay import generate_cover
 from VoiceChat_Song_bot.modules.botplay import arq
-from VoiceChat_Song_botmodules.botplay import cb_admin_check
+from VoiceChat_Song_bot.modules.botplay import cb_admin_check
 from VoiceChat_Song_bot.modules.botplay import transcode
 from VoiceChat_Song_bot.modules.botplay import convert_seconds
 from VoiceChat_Song_bot.modules.botplay import time_to_seconds
