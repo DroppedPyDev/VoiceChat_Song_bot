@@ -4,8 +4,8 @@ from typing import List
 
 from pyrogram.types import Chat
 
-from VoiceChat_Song_bot.function.admins import get 
-from VoiceChat_Song_bot.function.admins import set
+from VoiceChat_Song_bot.functions.admins import get 
+from VoiceChat_Song_bot.functions.admins import set
 
 
 async def get_administrators(chat: Chat) -> List[int]:
