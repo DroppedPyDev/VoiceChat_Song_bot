@@ -17,18 +17,18 @@ from pyrogram.types import Voice
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-from VoiceChat_Song_bot.modules.play import generate_cover
-from VoiceChat_Song_bot.modules.play import arq
-from VoiceChat_Song_botmodules.play import cb_admin_check
-from VoiceChat_Song_bot.modules.play import transcode
-from VoiceChat_Song_bot.modules.play import convert_seconds
-from VoiceChat_Song_bot.modules.play import time_to_seconds
-from VoiceChat_Song_bot.modules.play import changeImageSize
+from VoiceChat_Song_bot.modules.botplay import generate_cover
+from VoiceChat_Song_bot.modules.botplay import arq
+from VoiceChat_Song_botmodules.botplay import cb_admin_check
+from VoiceChat_Song_bot.modules.botplay import transcode
+from VoiceChat_Song_bot.modules.botplay import convert_seconds
+from VoiceChat_Song_bot.modules.botplay import time_to_seconds
+from VoiceChat_Song_bot.modules.botplay import changeImageSize
 from VoiceChat_Song_bot.config import BOT_NAME as bn
 from VoiceChat_Song_bot.config import DURATION_LIMIT
 from VoiceChat_Song_bot.config import UPDATES_CHANNEL as updateschannel
 from VoiceChat_Song_bot.config import que
-from VoiceChat_Song_bot.function.admins import admins as a
+from VoiceChat_Song_bot.functions.admins import admins as a
 from VoiceChat_Song_bot.helpers.errors import DurationLimitError
 from VoiceChat_Song_bot.helpers.decorators import errors
 from VoiceChat_Song_bot.helpers.admins import get_administrators
