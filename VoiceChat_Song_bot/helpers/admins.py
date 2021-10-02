@@ -1,15 +1,13 @@
-
-
 from typing import List
 
 from pyrogram.types import Chat
 
-from VoiceChat_Song_bot.functions.admins import get 
+from VoiceChat_Song_bot.functions.admins import get as gett
 from VoiceChat_Song_bot.functions.admins import set
 
 
 async def get_administrators(chat: Chat) -> List[int]:
-    get = get(chat.id)
+    get = gett(chat.id)
 
     if get:
         return get
