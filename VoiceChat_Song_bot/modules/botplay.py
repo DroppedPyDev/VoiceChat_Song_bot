@@ -29,7 +29,7 @@ from VoiceChat_Song_bot.config import BOT_NAME as bn
 from VoiceChat_Song_bot.config import DURATION_LIMIT
 from VoiceChat_Song_bot.config import UPDATES_CHANNEL as updateschannel
 from VoiceChat_Song_bot.config import que
-from VoiceChat_Song_bot.function.admins import admins as a
+from VoiceChat_Song_bot.functions.admins import admins as a
 from VoiceChat_Song_bot.helpers.admins import get_administrators
 from VoiceChat_Song_bot.helpers.channelmusic import get_chat_id
 from VoiceChat_Song_bot.helpers.errors import DurationLimitError
