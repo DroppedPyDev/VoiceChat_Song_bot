@@ -106,7 +106,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                 await f.close()
 
     image1 = Image.open("./background.png")
-    image2 = Image.open("./etc/foreground.png")
+    image2 = Image.open("./resources/IMG_20210924_195656_362.jpg")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
@@ -1059,7 +1059,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("You ain't the person who requested to play the song!", show_alert=True)
         return
-    await cb.message.edit("Hang On... Player Starting")
+    await cb.message.edit("**Downloading Song to Database!**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
