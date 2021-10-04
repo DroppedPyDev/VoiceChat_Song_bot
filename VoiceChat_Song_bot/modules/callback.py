@@ -230,28 +230,6 @@ async def cbowner(_, query: CallbackQuery):
     )
 
 
-@Client.on_callback_query(filters.regex("cbfun"))
-async def cbfun(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""<b>🏮 here is the fun commands</b>
-
-/chika - check it by yourself
-/wibu - check it by yourself
-/asupan - check it by yourself
-/truth - check it by yourself
-/dare - check it by yourself
-
-⚡ __Powered by {BOT_NAME} A.I__""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "🏡 BACK", callback_data="cbhelp"
-                    )
-                ]
-            ]
-        )
-    )
 
 
 @Client.on_callback_query(filters.regex("cbguide"))
@@ -427,11 +405,6 @@ async def cbhelps(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         "📙 Owner Cmd", callback_data="cbowner"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📔 Fun Cmd", callback_data="cbfun"
                     )
                 ],
                 [
