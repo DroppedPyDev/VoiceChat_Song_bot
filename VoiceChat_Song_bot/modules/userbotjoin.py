@@ -30,13 +30,13 @@ async def addchannel(client, message):
         await USER.send_message(message.chat.id, "I joined here as you requested")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>@{ASSISTANT_NAME} already in your chat.. Use /play Command!</b>",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
             f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nOr manually add @CatKing_ext to your Group and try again</b>",
+            "\n\nOr manually add @{ASSISTANT_NAME} to your Group and try again</b>",
         )
         return
     await message.reply_text(
@@ -51,8 +51,8 @@ async def rem(USER, message):
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            f"<b>User couldn't leave your group! May be floodwaits."
-            "\n\nOr manually kick me from to your Group</b>",
+            f"<b>@{ASSISTANT_NAME} couldn't leave your group! May be floodwaits."
+            "\n\nOr manually kick me and @{BOT_NAME} from your Group</b>",
         )
         return
     
@@ -110,11 +110,11 @@ async def addcchannel(client, message):
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your channel due to heavy join requests for userbot! Make sure user is not banned in channel."
-            "\n\nOr manually add @CatKing_ext to your Group and try again</b>",
+            f"<b>🛑 Flood Wait Error 🛑 \n ASSISTANT @{ASSISTANT_NAME} couldn't join your channel due to heavy join requests for userbot! Make sure user is not banned in channel."
+            "\n\nOr manually add @{ASSISTANT_NAME} to your Group and try again</b>",
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your channel</b>",
+        "<b>{BOT_NAME} 'S userbot joined your channel</b>",
     )
     
