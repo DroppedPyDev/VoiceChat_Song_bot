@@ -36,10 +36,8 @@ async def _human_time_duration(seconds):
 @Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>✨ **Welcome {message.from_user.first_name}** \n
+        f"""<b>✨ **Welcome Dear♥️ {message.from_user.first_name}** \n
 💭 **[{BOT_NAME}](https://t.me/Aami_song_bot) 𝗮𝗹𝗹𝗼𝘄 𝘆𝗼𝘂 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗴𝗿𝗼𝘂𝗽𝘀 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝘁𝗵𝗲 𝗻𝗲𝘄 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺'𝘀 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁𝘀 !**
-
-💡 **𝗙𝗶𝗻𝗱 𝗼𝘂𝘁 𝗮𝗹𝗹 𝘁𝗵𝗲 𝗕𝗼𝘁'𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱𝘀 𝗮𝗻𝗱 𝗵𝗼𝘄 𝘁𝗵𝗲𝘆 𝘄𝗼𝗿𝗸 𝗯𝘆 𝗰𝗹𝗶𝗰𝗸𝗶𝗻𝗴 𝗼𝗻 𝘁𝗵𝗲 » 📚 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 𝗯𝘂𝘁𝘁𝗼𝗻 !**
 
 ❓ **𝗙𝗼𝗿 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗮𝗯𝗼𝘂𝘁 𝗮𝗹𝗹 𝗳𝗲𝗮𝘁𝘂𝗿𝗲 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁, 𝗷𝘂𝘀𝘁 𝘁𝘆𝗽𝗲 /help**
 </b>""",
@@ -53,7 +51,7 @@ async def start_(client: Client, message: Message):
                     InlineKeyboardButton(text="GO INLINE🔎", switch_inline_query="")
                 ],[
                     InlineKeyboardButton(
-                        "❓ How to use Me", callback_data="cbhowtouse")
+                        "⚙️ Initial Setup", callback_data="cbhowtouse")
                 ],[
                     InlineKeyboardButton(
                          "📚 Commands", callback_data="cbcmds"
@@ -62,10 +60,10 @@ async def start_(client: Client, message: Message):
                         "💝 Donate", url=f"https://t.me/Telecat_X")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/CatX_botz_chat"
+                        "👥 Support", url=f"https://t.me/CatX_botz_chat"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/CatX_botz")
+                        "📣 Updates's", url=f"https://t.me/CatX_botz")
                 ],[
                     InlineKeyboardButton(
                         "🧪 Source Code 🧪", url="https://github.com/Abhijit-Sudhakaran/VoiceChat_Song_bot"
@@ -83,15 +81,15 @@ async def start(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        f"""✅ **bot is running successfully**\n<b>💠 **uptime:**</b> `{uptime}`""",
+        f"""✅ **All Services of {BOT_NAME} is Currently Alive!**\n<b>💠 **uptime:**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "✨ Group", url=f"https://t.me/CatX_botz_chat"
+                        "⛔ Report", url=f"https://t.me/CatX_botz_chat"
                     ),
                     InlineKeyboardButton(
-                        "📣 Channel", url=f"https://t.me/CatX_botz"
+                        "📣 What's New!", url=f"https://t.me/CatX_botz"
                     )
                 ]
             ]
@@ -105,7 +103,7 @@ async def help(client: Client, message: Message):
 
 **Please press the button below to read the explanation and see the list of available commands !**
 
-⚡ __Powered by {BOT_NAME} A.I""",
+⚡Powered by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -124,7 +122,7 @@ async def help_(client: Client, message: Message):
 
 **in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
-⚡ __Powered by {BOT_NAME} A.I__""",
+⚡Powered by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -159,7 +157,7 @@ async def ping_pong(client: Client, message: Message):
     m_reply = await message.reply_text("pinging network speed...")
     delta_ping = time() - start
     await m_reply.edit_text(
-        "🏓 `PONG!!`\n"
+        "🌐 `Network Ping!!`\n"
         f"⚡️ `{delta_ping * 1000:.3f} ms`"
     )
 
@@ -171,7 +169,8 @@ async def get_uptime(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 bot status:\n"
-        f"• **uptime:** `{uptime}`\n"
+        "🤖 {BOT_NAME} status:\n"
+        f"• **Uptime:** `{uptime}`\n"
         f"• **start time:** `{START_TIME_ISO}`"
+        f"• **TimeZone:** [India](https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.timeanddate.com/time/zone/india&ved=2ahUKEwiEy5TSi7bzAhVbYysKHeD1D7MQFnoECCEQAQ&usg=AOvVaw0OdJTFodzNXxEP8saCiuDE)"
     )
