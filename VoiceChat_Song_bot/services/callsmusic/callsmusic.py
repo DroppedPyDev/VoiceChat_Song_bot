@@ -1,12 +1,12 @@
 from typing import Dict
 
-from pytgcalls import GroupCallFactory
+from pytgcalls import GroupCall
 
 from VoiceChat_Song_bot.services.callsmusic import client
 from VoiceChat_Song_bot.services.queues import queues
 
 
-instances: Dict[int, GroupCallFactory] = {}
+instances: Dict[int, GroupCall] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
 
 
@@ -37,7 +37,7 @@ def remove(chat_id: int):
         del active_chats[chat_id]
 
 
-def get_instance(chat_id: int) -> GroupCallFactory:
+def get_instance(chat_id: int) -> GroupCall:
     init_instance(chat_id)
     return instances[chat_id]
 
