@@ -18,7 +18,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi there, This is a music assistant service .\n\n ❗️ Rules:\n   - No chatting allowed\n   - No spam allowed \n\n 👉 **SEND GROUP INVITE LINK OR USERNAME IF USERBOT CAN'T JOIN YOUR GROUP.**\n\n ⚠️ Disclamer: If you are sending a message here it means admin will see your message and join chat\n    - Don't add this user to secret groups.\n   - Don't Share private info here\n\n",
+                "Hi {message.from_user.first_name} 🤗, I am a Assistant of {BOT_NAME} for playing Music in Telegram Video Chats .\n\n Sorry Bro or Sis Kindly Contact My Creator Now ☺️.\n [Creator](https://t.me/{OWNER})",
             )
             return
 
@@ -44,11 +44,11 @@ async def autopmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
         pchats.append(chat_id)
-        await message.reply_text("Approoved to PM due to outgoing messages")
+        await message.reply_text("Approved to PM due to outgoing messages")
         return
     message.continue_propagation()    
     
-@USER.on_message(filters.command("a", [".", ""]) & filters.me & filters.private)
+@USER.on_message(filters.command("a", [".", "/"]) & filters.me & filters.private)
 async def pmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
@@ -58,7 +58,7 @@ async def pmPermiat(client: USER, message: Message):
     message.continue_propagation()    
     
 
-@USER.on_message(filters.command("da", [".", ""]) & filters.me & filters.private)
+@USER.on_message(filters.command("da", [".", "/"]) & filters.me & filters.private)
 async def rmpmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if chat_id in pchats:
