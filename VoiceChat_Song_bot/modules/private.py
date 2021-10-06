@@ -158,7 +158,8 @@ async def ping_pong(client: Client, message: Message):
     delta_ping = time() - start
     await m_reply.edit_text(
         "🌐 `Network Ping!!`\n"
-        f"⚡️ `{delta_ping * 1000:.3f} ms`"
+        f"⚡️ `{delta_ping * 1000:.3f} ms`\n"
+        f"**Server: Heroku**"
     )
 
 
@@ -171,6 +172,6 @@ async def get_uptime(client: Client, message: Message):
     await message.reply_text(
         "🤖 {BOT_NAME} status:\n"
         f"• **Uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        f"• **start time:** `{START_TIME_ISO}`\n"
         f"• **TimeZone:** [India](https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.timeanddate.com/time/zone/india&ved=2ahUKEwiEy5TSi7bzAhVbYysKHeD1D7MQFnoECCEQAQ&usg=AOvVaw0OdJTFodzNXxEP8saCiuDE)"
     )
