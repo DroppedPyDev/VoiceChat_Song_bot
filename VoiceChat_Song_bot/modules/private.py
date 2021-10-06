@@ -170,7 +170,7 @@ async def get_uptime(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 {BOT_NAME} status:\n"
+        f"🤖 {BOT_NAME} status:\n"
         f"• **Uptime:** `{uptime}`\n"
         f"• **start time:** `{START_TIME_ISO}`\n"
         f"• **TimeZone:** [India](https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.timeanddate.com/time/zone/india&ved=2ahUKEwiEy5TSi7bzAhVbYysKHeD1D7MQFnoECCEQAQ&usg=AOvVaw0OdJTFodzNXxEP8saCiuDE)"
