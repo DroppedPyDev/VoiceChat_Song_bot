@@ -1,3 +1,5 @@
+#Don't edit Some Mdules name below❕ 
+
 
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
@@ -101,8 +103,9 @@ async def cbbasic(_, query: CallbackQuery):
 - /video (video name) - download video from youtube detailed
 - /lyrics - (song name) lyrics scrapper
 
+**Note: These Commands Can Execute any Bot or Group Users!**
 
-⚡ Powered by {BOT_NAME} """,
+⚡ Information by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -126,7 +129,9 @@ async def cbadvanced(_, query: CallbackQuery):
 /ping - check the bot ping status
 /uptime - check the bot uptime status
 
-⚡Powered by {BOT_NAME} """,
+**Note: Anyone in Group or Bot PM can Execute these Commads!**
+
+⚡ Information by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -160,7 +165,9 @@ async def cbadmin(_, query: CallbackQuery):
 /m and /tm (mute / temporary mute) - mute permanently or temporarily muted user in group
 /um - to unmute user you're muted in group
 
-⚡Powered by {BOT_NAME} """,
+**Note: Only Admins of Group/ Channel Can Execute these Commads!. Non Admins Cannot Executable.**
+
+⚡ Information by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -184,7 +191,9 @@ async def cbsudo(_, query: CallbackQuery):
 /rmd - remove all downloaded files
 /clean - Remove all raw files
 
-⚡Powered by {BOT_NAME} """,
+**Note: These Commands Executable only For Bot Sudo users!**
+
+⚡ Information by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -209,7 +218,7 @@ async def cbowner(_, query: CallbackQuery):
 
 📝 note: all commands owned by this bot can be executed by the owner of the bot without any exceptions.
 
-⚡Powered by {BOT_NAME} """,
+⚡ Information by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -279,7 +288,7 @@ async def cbback(_, query: CallbackQuery):
                         "⏩ skip", callback_data="cbskip"
                     ),
                     InlineKeyboardButton(
-                        "⏹ end", callback_data="cbend"
+                        "⏹ Stop", callback_data="cbend"
                     )
                 ],
                 [
@@ -327,7 +336,7 @@ and you can also set a time for the ban and mute penalties for members in your g
 
 📝 note: cmd /b, /tb and /ub is the function to banned/unbanned user from your group, whereas /m, /tm and /um are commands to mute/unmute user in your group.
 
-⚡Powered by {BOT_NAME} """,
+⚡ Information by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -357,7 +366,7 @@ async def cbdelcmds(_, query: CallbackQuery):
  2️⃣ to turn off feature:
      » type `/delcmd off`
       
-⚡Powered by {BOT_NAME} """,
+⚡ Information by {BOT_NAME} """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -377,7 +386,7 @@ async def cbhelps(_, query: CallbackQuery):
 
 **in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
-⚡ __Powered by {BOT_NAME} A.I__""",
+⚡ __Information by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -418,7 +427,7 @@ async def cbguides(_, query: CallbackQuery):
 
 1.) first, add me to your group.
 2.) then promote me as admin and give all permissions except anonymous admin.
-3.) add @CatKing_ext to your group or type /userbotjoin to invite her.
+3.) add {ASSISTANT_NAME} to your group or type /userbotjoin to invite her.
 4.) Assistant Need Permission atleast •Delete Messages.
 5.) turn on the voice chat first before start to play music.
 6.) Join Update's Channel ❕
