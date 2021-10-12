@@ -422,7 +422,7 @@ async def m_cb(b, cb):
         if chat_id in callsmusic.active_chats:
             try:
                queues.clear(chat_id)
-            except QueueEmpty:
+            except Empty:
                 pass
 
             await callsmusic.stop(chat_id)
