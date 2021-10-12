@@ -45,7 +45,7 @@ async def start_(client: Client, message: Message):
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url=f"https://t.me/Aami_song_bot?startgroup=true")
+                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_NAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(text="SEARCH HERE🔎", switch_inline_query_current_chat=""),
                     InlineKeyboardButton(text="GO INLINE🔎", switch_inline_query="")
@@ -57,13 +57,13 @@ async def start_(client: Client, message: Message):
                          "📚 Commands", callback_data="cbcmds"
                     ),
                     InlineKeyboardButton(
-                        "💝 Donate", url=f"https://t.me/Telecat_X")
+                        "💝 Donate", url=f"https://t.me/Telecat_X") #these line can edit by your own Username!
                 ],[
                     InlineKeyboardButton(
-                        "👥 Support", url=f"https://t.me/CatX_botz_chat"
+                        "👥 Support", url=f"https://t.me/{SUPPORT_GROUP}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Updates's", url=f"https://t.me/CatX_botz")
+                        "📣 Updates's", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],[
                     InlineKeyboardButton(
                         "🧪 Source Code 🧪", url="https://github.com/Abhijit-Sudhakaran/VoiceChat_Song_bot"
@@ -86,10 +86,10 @@ async def start(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "⛔ Report", url=f"https://t.me/CatX_botz_chat"
+                        "⛔ Report", url=f"https://t.me/{SUPPORT_GROUP"
                     ),
                     InlineKeyboardButton(
-                        "📣 What's New!", url=f"https://t.me/CatX_botz"
+                        "📣 What's New!", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
