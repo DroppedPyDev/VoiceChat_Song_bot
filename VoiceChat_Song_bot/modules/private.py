@@ -86,7 +86,7 @@ async def start(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "⛔ Report", url=f"https://t.me/{SUPPORT_GROUP"
+                        "⛔ Report", url=f"https://t.me/{SUPPORT_GROUP}"
                     ),
                     InlineKeyboardButton(
                         "📣 What's New!", url=f"https://t.me/{UPDATES_CHANNEL}"
