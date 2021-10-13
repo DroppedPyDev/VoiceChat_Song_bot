@@ -2,6 +2,8 @@ from pyrogram import Client
 import asyncio
 from VoiceChat_Song_bot.config import SUDO_USERS
 from VoiceChat_Song_bot.config import PMPERMIT
+from VoiceChat_Song_bot.config import BOT_NAME
+from VoiceChat_Song_bot.config import OWNER_NAME
 from pyrogram import filters
 from pyrogram.types import Message
 from VoiceChat_Song_bot.services.callsmusic import client as USER
@@ -18,7 +20,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi {message.from_user.first_name} 🤗, I am a Assistant of {BOT_NAME} for playing Music in Telegram Video Chats .\n\n Sorry Bro or Sis Kindly Contact My Creator Now ☺️.\n [Creator](https://t.me/{OWNER})",
+                "Hi {message.from_user.first_name} 🤗, I am a Assistant of {BOT_NAME} for playing Music in Telegram Video Chats .\n\n Sorry Bro or Sis Kindly Contact My Creator Now ☺️.\n [Creator](https://t.me/{OWNER_NAME})",
             )
             return
 
