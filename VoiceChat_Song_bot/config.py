@@ -24,6 +24,7 @@ SOURCE_CODE = getenv("SOURCE_CODE", "github.com/Abhijith-Sudhakaran/VoiceChat_So
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "25"))
 ARQ_API_KEY = getenv("ARQ_API_KEY", None)
 PMPERMIT = getenv("PMPERMIT", None)
+START_IMG = getenv("START_IMG","https://telegra.ph/file/fd294693240383d0a6af6.jpg")
 LOG_GRP = getenv("LOG_GRP", None)
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
 
