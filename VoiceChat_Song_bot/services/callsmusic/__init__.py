@@ -1,4 +1,6 @@
-from VoiceChat_Song_bot.services.queues import queues
-from VoiceChat_Song_bot.services.callsmusic.callsmusic import pytgcalls, run
+from pyrogram import Client
 
-__all__ = ["queues", "pytgcalls", "run"]
+from VoiceChat_Song_bot import config
+
+client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
+run = client.run
