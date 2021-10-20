@@ -2,8 +2,6 @@ from pyrogram import Client
 import asyncio
 from VoiceChat_Song_bot.config import SUDO_USERS
 from VoiceChat_Song_bot.config import PMPERMIT
-from VoiceChat_Song_bot.config import BOT_NAME
-from VoiceChat_Song_bot.config import OWNER_NAME
 from pyrogram import filters
 from pyrogram.types import Message
 from VoiceChat_Song_bot.services.callsmusic import client as USER
@@ -20,7 +18,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi {message.from_user.first_name} 🤗, I am a Assistant of {BOT_NAME} for playing Music in Telegram Video Chats .\n\n Sorry Bro or Sis Kindly Contact My Creator Now ☺️.\n [Creator](https://t.me/{OWNER_NAME})",
+                "Hi Dear {} 🤗, I am a Assistant of [Aami](https://t.me/Aami_Song_bot)for playing Music in Telegram Video Chats .\n\n Sorry Bro or Sis Kindly Contact My Creator Now ☺️.\n [Creator](https://t.me/Telecat_X) \n\n If You Have any Complaints or Suggestions to Our Bot, Kindly Share With Creator or Share in @CatX_botz_chat ❤️\n Services Provided By @CatX_botz",
             )
             return
 
@@ -46,7 +44,7 @@ async def autopmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
         pchats.append(chat_id)
-        await message.reply_text("Approved to PM due to outgoing messages")
+        await message.reply_text("Approved to PM due to outgoing messages. Don't send Spam Links or Personal Information about You😌")
         return
     message.continue_propagation()    
     
@@ -55,7 +53,7 @@ async def pmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
         pchats.append(chat_id)
-        await message.reply_text("Approoved to PM")
+        await message.reply_text("Approoved to PM, Ask Your Doubts to [Creator](https://t.me/Telecat_X)")
         return
     message.continue_propagation()    
     
