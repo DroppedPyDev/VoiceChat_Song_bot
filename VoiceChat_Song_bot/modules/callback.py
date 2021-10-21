@@ -4,7 +4,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, Chat, CallbackQuery
 from VoiceChat_Song_bot.helpers.decorators import authorized_users_only
-from VoiceChat_Song_bot.config import BOT_NAME, BOT_USERNAME, OWNER_NAME, SUPPORT_GROUP, UPDATES_CHANNEL, ASSISTANT_NAME
+from VoiceChat_Song_bot.config import BOT_NAME, BOT_USERNAME, OWNER_NAME, SUPPORT_GROUP, UPDATES_CHANNEL, ASSISTANT_NAME, SOURCE_CODE
 from VoiceChat_Song_bot.modules.botplay import cb_admin_check
 
 
@@ -38,7 +38,7 @@ async def cbstart(_, query: CallbackQuery):
                         "📣 Updates", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],[
                     InlineKeyboardButton(
-                        "🧪 Source Code 🧪", url="https://github.com/Abhijith-Sudhakaran/VoiceChat_Song_bot"
+                        "🧪 Source Code 🧪", url="{SOURCE_CODE}"
                     )
                 ]
             ]
@@ -250,7 +250,7 @@ async def cbguide(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "🔁 Updates", url=f"https://t.me/CatX_botz"
+                        "🔁 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ],
                 [
