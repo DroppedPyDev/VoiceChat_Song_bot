@@ -59,7 +59,7 @@ def song(client, message):
             info_dict = ydl.extract_info(link, download=True)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = "🎵 Sᴏɴɢ Uᴘʟᴏᴀᴅᴇᴅ ғʀᴏᴍ YᴏᴜTᴜʙᴇ Mᴜsɪᴄ..!.\nPᴏᴡᴇʀᴇᴅ ʙʏ @CatX_botz"
+        rep = "🎵 Sᴏɴɢ Uᴘʟᴏᴀᴅᴇᴅ ғʀᴏᴍ YᴏᴜTᴜʙᴇ Mᴜsɪᴄ..!.\nPᴏᴡᴇʀᴇᴅ ʙʏ [🦋𝐀𝐚𝐦𝐢🥀](https://t.me/Aami_Song_bot)"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
@@ -74,7 +74,7 @@ def song(client, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ Error")
+        m.edit("❌ Error Contact [ƈɾҽαƚσɾ](https://t.me/Telecat_X)")
         print(e)
 
     try:
