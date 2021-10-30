@@ -22,6 +22,12 @@ broadcast_ids = {}
 
 from VoiceChat_Song_bot.config import SUDO_USERS
 
+@Client.on_message(filters.command(["broadcast"]))
+async def broadcast(_, message: Message):
+    sent=0
+    failed=0
+    if message.from_user.id not in SUDO_USERS:
+        return
 
 async def send_msg(user_id, message):
     try:
