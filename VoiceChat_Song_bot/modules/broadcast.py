@@ -16,7 +16,7 @@ from pyrogram.errors import (
     UserIsBlocked,
 )
 
-import config
+from VoiceChat_Song_bot import config
 
 broadcast_ids = {}
 
