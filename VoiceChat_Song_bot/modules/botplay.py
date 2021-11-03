@@ -1,4 +1,3 @@
-# Created 🌟 github : @Abhijith-Sudhakaran
 
 
 import json
@@ -43,6 +42,7 @@ from VoiceChat_Song_bot.services.callsmusic import client as USER
 from VoiceChat_Song_bot.services.converter.converter import convert
 from VoiceChat_Song_bot.services.downloaders import youtube
 from VoiceChat_Song_bot.services.queues import queues
+
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
@@ -149,7 +149,7 @@ async def playlist(client, message):
 # ============================= Settings =========================================
 
 
-def updated_stats(chat, queue, vol=90):
+def updated_stats(chat, queue, vol=85):
     if chat.id in callsmusic.active_chats:
         # if chat.id in active_chats:
         stats = "Settings of **{}**".format(chat.title)
@@ -304,34 +304,34 @@ async def m_cb(b, cb):
         cb.message.chat.title.startswith("Channel Music: ")
         and chat.title[14:].isnumeric()
     ):
-        chat_id = int(chat.title[13:])
+        chet_id = int(chat.title[13:])
     else:
-        chat_id = cb.message.chat.id
-    qeue = que.get(chat_id)
+        chet_id = cb.message.chat.id
+    qeue = que.get(chet_id)
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
     m_chat = cb.message.chat
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "pause":
-        if (chat_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chat_id] == "paused"
+        if (chet_id not in callsmusic.active_chats) or (
+            callsmusic.active_chats[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
-            callsmusic.pause(chat_id)
+            callsmusic.pause(chet_id)
             await cb.answer("Music Paused!")
             await cb.message.edit(
                 updated_stats(m_chat, qeue), reply_markup=r_ply("play")
             )
 
     elif type_ == "play":
-        if (chat_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chat_id] == "playing"
+        if (chet_id not in callsmusic.active_chats) or (
+            callsmusic.active_chats[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
-            callsmusic.resume(chat_id)
+            callsmusic.resume(chet_id)
             await cb.answer("Music Resumed!")
             await cb.message.edit(
                 updated_stats(m_chat, qeue), reply_markup=r_ply("pause")
@@ -361,28 +361,28 @@ async def m_cb(b, cb):
         await cb.message.edit(msg)
 
     elif type_ == "resume":
-        if (chat_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chat_id] == "playing"
+        if (chet_id not in callsmusic.active_chats) or (
+            callsmusic.active_chats[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected or already playng", show_alert=True)
         else:
-            callsmusic.resume(chat_id)
-            await cb.answer("**Music Resumed!**")
+            callsmusic.resume(chet_id)
+            await cb.answer("Music Resumed!")
     elif type_ == "puse":
-        if (chat_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chat_id] == "paused"
+        if (chet_id not in callsmusic.active_chats) or (
+            callsmusic.active_chats[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected or already paused", show_alert=True)
         else:
-            callsmusic.pause(chat_id)
-            await cb.answer("**Music Paused!**")
+            callsmusic.pause(chet_id)
+            await cb.answer("Music Paused!")
     elif type_ == "cls":
         await cb.answer("Closed menu")
         await cb.message.delete()
 
     elif type_ == "menu":
         stats = updated_stats(cb.message.chat, qeue)
-        await cb.answer("**Menu opened**")
+        await cb.answer("Menu opened")
         marr = InlineKeyboardMarkup(
             [
                 [
@@ -401,16 +401,16 @@ async def m_cb(b, cb):
     elif type_ == "skip":
         if qeue:
             qeue.pop(0)
-        if chat_id not in callsmusic.active_chats:
+        if chet_id not in callsmusic.active_chats:
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
-            queues.task_done(chat_id)
-            if queues.is_empty(chat_id):
-                callsmusic.stop(chat_id)
+            queues.task_done(chet_id)
+            if queues.is_empty(chet_id):
+                callsmusic.stop(chet_id)
                 await cb.message.edit("- No More Playlist..\n- Leaving VC!")
             else:
                 await callsmusic.set_stream(
-                    chat_id, queues.get(chat_id)["file"]
+                    chet_id, queues.get(chet_id)["file"]
                 )
                 await cb.answer.reply_text("✅ <b>Skipped</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
@@ -419,13 +419,13 @@ async def m_cb(b, cb):
                 )
 
     else:
-        if chat_id in callsmusic.active_chats:
+        if chet_id in callsmusic.active_chats:
             try:
-               queues.clear(chat_id)
-            except Empty:
+               queues.clear(chet_id)
+            except QueueEmpty:
                 pass
 
-            await callsmusic.stop(chat_id)
+            await callsmusic.stop(chet_id)
             await cb.message.edit("Successfully Left the Chat!")
         else:
             await cb.answer("Chat is not connected!", show_alert=True)
@@ -590,7 +590,7 @@ async def play(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                    InlineKeyboardButton(text="Download 📥", url=f"https://t.me/RadioCat_bot?start=true"),
+                    InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
                 [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
             ]
@@ -603,7 +603,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🎵 Ready to Start...!")
+        await lel.edit("🎵 **Processing**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -641,7 +641,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            await lel.edit("Yᴏᴜ ᴅɪᴅɴ'ᴛ ɢɪᴠᴇ ᴀɴʏᴛʜɪɴɢ ᴛᴏ Pʟᴀʏ , Sᴛᴀʀᴛɪɴɢ Dɪʀᴇᴄᴛ Pʟᴀʏ..")
+            await lel.edit("No Enough results to choose.. Starting direct play..")
                         
             # print(results)
             try:
@@ -681,7 +681,7 @@ async def play(_, message: Message):
                     ],
                     [
                         InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                        InlineKeyboardButton(text="Download 📥", url=f"https://t.me/RadioCat_bot?start=true"),
+                        InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                     ],
                     [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
                 ]
@@ -1048,7 +1048,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("You ain't the person who requested to play the song!", show_alert=True)
         return
-    await cb.message.edit("**Downloading Song to Database!**")
+    await cb.message.edit("```Player Ready to Start Streaming..Keep Patience```")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
