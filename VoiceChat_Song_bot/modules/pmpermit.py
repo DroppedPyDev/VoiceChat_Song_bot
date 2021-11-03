@@ -18,7 +18,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi Dear {} 🤗, I am a Assistant of [Aami](https://t.me/Aami_Song_bot)for playing Music in Telegram Video Chats .\n\n Sorry Bro or Sis Kindly Contact My Creator Now ☺️.\n [Creator](https://t.me/Telecat_X) \n\n If You Have any Complaints or Suggestions to Our Bot, Kindly Share With Creator or Share in @CatX_botz_chat ❤️\n Services Provided By @CatX_botz",
+                "**Hi Dear , I am a Assistant of** [Aami](https://t.me/Aami_Song_bot) **for playing Music in Telegram Video Chats** .\n\n Sorry Bro or Sis Kindly Contact My Creator Now ☺️.\n [Creator](https://t.me/Telecat_X) \n\n If You Have any Complaints or Suggestions to Our Bot, Kindly Share With Creator or Share in @AAMIBOTSUPPORT ❤️\n Services Provided By @AAMIBOTUPDATES",
             )
             return
 
