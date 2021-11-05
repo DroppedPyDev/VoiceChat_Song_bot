@@ -67,9 +67,7 @@ class Database:
         )
 
 
-BOT_OWNER = int(os.environ.get("BOT_OWNER"))
-DATABASE = os.environ.get("DATABASE")
-db = Database(DATABASE, "FnTranslateBot")
+db = Database(DATABASE, "aamisongbot")
 broadcast_ids = {}
 
 
