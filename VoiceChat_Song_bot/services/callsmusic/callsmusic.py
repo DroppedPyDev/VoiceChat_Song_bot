@@ -5,14 +5,15 @@ from pytgcalls import GroupCallFactory
 from VoiceChat_Song_bot.services.callsmusic import client
 from VoiceChat_Song_bot.services.queues import queues
 
-
 instances: Dict[int, GroupCallFactory] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
 
 
 def init_instance(chat_id: int):
     if chat_id not in instances:
-        instances[chat_id] = GroupCallFactory(client,outgoing_audio_bitrate_kbit=512).get_file_group_call()
+        instances[chat_id] = GroupCallFactory(
+            client, outgoing_audio_bitrate_kbit=320
+        ).get_file_group_call()
 
     instance = instances[chat_id]
 
@@ -23,7 +24,7 @@ def init_instance(chat_id: int):
         if queues.is_empty(chat_id):
             await stop(chat_id)
         else:
-            instance.input_filename = queues.get(chat_id)["file_path"]
+            instance.input_filename = queues.get(chat_id)["file"]
 
 
 def remove(chat_id: int):
