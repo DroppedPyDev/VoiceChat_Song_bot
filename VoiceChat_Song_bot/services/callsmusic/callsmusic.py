@@ -1,4 +1,4 @@
-from . import queues
+from VoiceChat_Song_bot.services.queues import queues
 from pyrogram import Client
 from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
