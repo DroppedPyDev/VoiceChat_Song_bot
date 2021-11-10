@@ -1,6 +1,7 @@
 from typing import Dict
 
-from pytgcalls import GroupCallFactory
+from pytgcalls import PyTgCalls
+from PyTgCalls import GroupCallFactory
 
 from VoiceChat_Song_bot.services.callsmusic import client
 from VoiceChat_Song_bot.services.queues import queues
