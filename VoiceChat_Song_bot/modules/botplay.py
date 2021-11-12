@@ -113,6 +113,18 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     image6 = image4.convert("RGBA")
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
+    img = Image.open("temp.png")
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("etc/font.otf", 32)
+    draw.text((205, 550), f"Title: {title}", (51, 215, 255), font=font)
+    draw.text((205, 590), f"Duration: {duration}", (255, 255, 255), font=font)
+    draw.text((205, 630), f"Views: {views}", (255, 255, 255), font=font)
+    draw.text(
+        (205, 670),
+        f"Added By: {requested_by}",
+        (255, 255, 255),
+        font=font,
+    )
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
@@ -125,7 +137,7 @@ async def playlist(client, message):
         return    
     queue = que.get(message.chat.id)
     if not queue:
-        await message.reply_text("Player is idle")
+        await message.reply_text("Player is Alive")
     temp = []
     for t in queue:
         temp.append(t)
@@ -172,7 +184,7 @@ def r_ply(type_):
     mar = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("⏹", "leave"),
+                InlineKeyboardButton("⏹", "end"),
                 InlineKeyboardButton("⏸", "puse"),
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip"),
@@ -295,7 +307,7 @@ async def p_cb(b, cb):
 
 
 @Client.on_callback_query(
-    filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
+    filters.regex(pattern=r"^(play|pause|skip|end|puse|resume|menu|cls)$")
 )
 @cb_admin_check
 async def m_cb(b, cb):
@@ -386,7 +398,7 @@ async def m_cb(b, cb):
         marr = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏹", "leave"),
+                    InlineKeyboardButton("⏹", "end"),
                     InlineKeyboardButton("⏸", "puse"),
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip"),
@@ -481,14 +493,14 @@ async def play(_, message: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again manually request here @AwesomeSupport with your group link</b>",
+                        "\n\nOr manually add assistant to your Group and try again manually request here @AAMIBOTSUPPORT with your group link</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually request here @AwesomeSupport with your group link</i>"
+            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually request here @AAMIBOTSUPPORT with your group link</i>"
         )
         return
     text_links=None
@@ -620,7 +632,8 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} <b>ѕσиg иαмє - {results[j]['title']}</b>\n"
                 toxxt += f" ⧽ <b>∂υяαтισи</b> - {results[j]['duration']}\n"
-                toxxt += f" ⧽ <b>ρσωєяє∂ ву</b> - Cᴀᴛ Mᴜsɪᴄ\n\n"
+                toxxt += f" ⧽ <b>ρσωєяє∂ ву</b> - [Aami🥀](https://t.me/AAMIBOTSUPPORT)\n"
+                toxxt += f" ⧽ <b>Source </b> - [Yotube Music](https://m.youtube.com)\n"
                 j += 1            
             koyboard = InlineKeyboardMarkup(
                 [
@@ -639,9 +652,9 @@ async def play(_, message: Message):
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
-            # Returning to pornhub
+            # Returning to Earth 🌎
         except:
-            await lel.edit("No Enough results to choose.. Starting direct play..")
+            await lel.edit("WTH😬 - No Enough results to choose.. Starting direct play..")
                         
             # print(results)
             try:
@@ -680,8 +693,8 @@ async def play(_, message: Message):
                         InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                     ],
                     [
-                        InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                         InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                        InlineKeyboardButton (text="Search 🔍", switch_inline_query_current_chat=""),
                     ],
                     [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
                 ]
@@ -779,14 +792,14 @@ async def ytplay(_, message: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again manually request here @AwesomeSupport with your group link</b>",
+                        "\n\nOr manually add assistant to your Group and try again manually request here @AAMIBOTSUPPORT with your group link</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually request here @AwesomeSupport with your group link</i>"
+            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually request here @AAMIBOTSUPPORT with your group link</i>"
         )
         return
     await lel.edit("🔎 <b>Finding</b>")
@@ -839,7 +852,7 @@ async def ytplay(_, message: Message):
             ],
             [
                 InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
+                InlineKeyboardButton(text="Search 🔍", switch_inline_query_current_chat=""),
             ],
             [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
         ]
@@ -880,7 +893,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> here the song requested by {} via Youtube Music 😎".format(
+            caption="▶️ Pʟᴀʏɪɴɢ Sᴏɴɢ Rᴇǫᴜᴇsᴛᴇᴅ ʙʏ ᴜsᴇʀ {} Vɪᴀ [Yᴏᴜᴛᴜʙᴇ Mᴜsɪᴄ](m.youtube.com)".format(
                 message.from_user.mention()
             ),
         )
@@ -936,14 +949,14 @@ async def jiosaavn(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @CatKing_ext to your Group and try again manually request here @AwesomeSupport with your group link</b>",
+                        "\n\nOr manually add @CatKing_ext to your Group and try again manually request here @AAMIBOTSUPPORT with your group link</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually request here @AwesomeSupport with your group link</i>"
+            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually request here @AAMIBOTSUPPORT with your group link</i>"
         )
         return
     requested_by = message_.from_user.first_name
@@ -1089,7 +1102,7 @@ async def lol_cb(b, cb):
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [
-                InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
+                InlineKeyboardButton(text="🔍 Search", switch_inline_query_current_chat=""),
                 InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
             ],
             [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
@@ -1134,6 +1147,6 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Youtube Music 😎",
+            caption=f"▶️ Pʟᴀʏɪɴɢ Sᴏɴɢ Rᴇǫᴜᴇsᴛᴇᴅ ʙʏ ᴜsᴇʀ {} Vɪᴀ [Yᴏᴜᴛᴜʙᴇ Mᴜsɪᴄ](m.youtube.com)",
         )
         os.remove("final.png")
