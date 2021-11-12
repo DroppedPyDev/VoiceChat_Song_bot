@@ -14,9 +14,9 @@ The easiest way to deploy this Bot
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/Abhijith-Sudhakaran/VoiceChat_Song_bot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 
-- Support Channel :- [CatX Botz](http://t.me/CatX_botz)
+- Support Channel :- [UPDATES🔃](http://t.me/AAMIBOTUPDATES)
 
-- Support Group :- [CBotZ Support](http://t.me/CatX_botz_chat)
+- Support Group :- [SUPPORT👥](http://t.me/AAMIBOTSUPPORT)
 
 
 ```
@@ -77,3 +77,5 @@ Get STRING_NAME from here:  [![GenerateString](https://img.shields.io/badge/repl
 
 ####  Credits
 <samp> - [MR-JINN-OF-TG](https://github.com/MR-JINN-OF-TG) For Helping me in this Project❤️ <br> - Me For Creating This Repo😸 </samp>
+### Special thanks 💗
+- [QueenArzoo](https://github.com/QueenArzoo) - For Base Code 
