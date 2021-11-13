@@ -12,7 +12,9 @@ from VoiceChat_Song_bot.modules.botplay import cb_admin_check
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""<b>✨ **Welcome Dear♥️, i'm {query.message.from_user.mention}** \n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) 𝗮𝗹𝗹𝗼𝘄 𝘆𝗼𝘂 𝘁𝗼 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗴𝗿𝗼𝘂𝗽𝘀 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝘁𝗵𝗲 𝗻𝗲𝘄 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺'𝘀 𝘃𝗼𝗶𝗰𝗲 𝗰𝗵𝗮𝘁𝘀 !**
+💭 𝐈 𝐚𝐦 **[{BOT_NAME}](https://t.me/{BOT_USERNAME})\n 🥀 𝘼 𝘽𝙤𝙩 𝙛𝙤𝙧 𝙋𝙡𝙖𝙮𝙞𝙣𝙜 𝙈𝙪𝙨𝙞𝙘 𝙞𝙣 𝙔𝙤𝙪𝙧 𝙂𝙧𝙤𝙪𝙥 𝙑𝙤𝙞𝙘𝙚 𝘾𝙝𝙖𝙩!**
+
+🥀 𝙈𝙪𝙨𝙞𝙘 𝙞𝙨 𝙩𝙝𝙚 𝙨𝙩𝙧𝙤𝙣𝙜𝙚𝙨𝙩 𝙛𝙤𝙧𝙢 𝙤𝙛 𝙢𝙖𝙜𝙞𝙘 
 
 ❓ **𝗙𝗼𝗿 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗮𝗯𝗼𝘂𝘁 𝗮𝗹𝗹 𝗳𝗲𝗮𝘁𝘂𝗿𝗲 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁, 𝗷𝘂𝘀𝘁 𝘁𝘆𝗽𝗲 /help**
 </b>""",
@@ -27,20 +29,14 @@ async def cbstart(_, query: CallbackQuery):
                 ],[
                     InlineKeyboardButton(
                          "📚 Commands", callback_data="cbcmds"
-                    ),
-                    InlineKeyboardButton(
-                        "💝 Donate", url=f"https://t.me/{OWNER_NAME}")
+                    )
                 ],[
                     InlineKeyboardButton(
                         "👥 Support", url=f"https://t.me/{SUPPORT_GROUP}"
                     ),
                     InlineKeyboardButton(
                         "📣 Updates", url=f"https://t.me/{UPDATES_CHANNEL}")
-                ],[
-                    InlineKeyboardButton(
-                        "🧪 Source Code 🧪", url="{SOURCE_CODE}"
-                    )
-                ]
+                ],
             ]
         ),
      disable_web_page_preview=True
@@ -50,7 +46,7 @@ async def cbstart(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbhelp"))
 async def cbhelp(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""<b>💡 Hello there, welcome to the help menu !</b>
+        f"""<b>💡 Hello there, welcome to the help menu of [{BOT_NAME}](https://t.me/{BOT_USERNAME})!</b>
 
 **in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
 
@@ -252,7 +248,10 @@ async def cbguide(_, query: CallbackQuery):
                     InlineKeyboardButton(
                         "🔁 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
-                ],
+                ],[
+                    InlineKeyboardButton(
+                        "💾 Source Code", url=f"https://github.com/Abhijith-Sudhakaran/VoiceChat_Song_bot"
+                   )
                 [
                     InlineKeyboardButton(
                         "🗑 Back", callback_data="cbback"
