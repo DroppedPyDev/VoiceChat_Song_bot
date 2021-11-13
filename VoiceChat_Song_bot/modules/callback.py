@@ -252,7 +252,7 @@ async def cbguide(_, query: CallbackQuery):
                     InlineKeyboardButton(
                         "💾 Source Code", url=f"https://github.com/Abhijith-Sudhakaran/VoiceChat_Song_bot"
                    )
-                [
+                ],[
                     InlineKeyboardButton(
                         "🗑 Back", callback_data="cbback"
                     )
